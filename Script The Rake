@@ -1,6 +1,16 @@
+wait(5) do
 --[ ESP Items ]
 loadstring(game:HttpGet("https://raw.githubusercontent.com/irlng/TheRakeRemastered/main/TheRake.lua"))()
+print("ESP Items Funcionando...")
+
+wait(5) do
 --[ Visão Noturna ]
 loadstring(game:HttpGet("https://pastebin.com/raw/8hdj5EfY"))
+print("Visão Noturna Funcionando...")
+
+wait(5) do
 --[ The Rake V1 ]
 loadstring(game:HttpGet("pastebin.com/raw/kHn9PUPn"))
+print("The Rake V1 Funcionando...")
+
+end)
