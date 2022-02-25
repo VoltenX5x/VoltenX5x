@@ -1,0 +1,6 @@
+--[ ESP Items ]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/irlng/TheRakeRemastered/main/TheRake.lua"))()
+--[ Visão Noturna ]
+loadstring(game:HttpGet("https://pastebin.com/raw/8hdj5EfY"))
+--[ The Rake V1 ]
+loadstring(game:HttpGet("pastebin.com/raw/kHn9PUPn"))
