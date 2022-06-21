@@ -1,16 +1,260 @@
-wait(5) do
---[ ESP Items ]
-loadstring(game:HttpGet("https://raw.githubusercontent.com/irlng/TheRakeRemastered/main/TheRake.lua"))()
-print("ESP Items Funcionando...")
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
 
-wait(5) do
---[ Visão Noturna ]
-loadstring(game:HttpGet("https://pastebin.com/raw/8hdj5EfY"))
-print("Visão Noturna Funcionando...")
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Carregando Script!";
+	Text = "Espere um pouco";
+    Duration = 2;
+})
+wait(2)
 
-wait(5) do
---[ The Rake V1 ]
-loadstring(game:HttpGet("pastebin.com/raw/kHn9PUPn"))
-print("The Rake V1 Funcionando...")
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Pronto";
+	Text = "Script carregado!";
+    Duration = 2;
+})
+wait(1)
 
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("VoltenX", "Sentinel")
+
+local Tab = Window:NewTab("Config")
+local Config = Tab:NewSection("Config")
+
+Config:NewKeybind("KeybindButton", "KeybindButton", Enum.KeyCode.RightShift, function()
+	Library:ToggleUI()
+end)
+
+local Tab = Window:NewTab("Time")
+local Time = Tab:NewSection("Times")
+
+Time:NewButton("Foundation", "Foundation Button", function()
+	local args = {[1] = "Foundation",[2] = true}
+	game:GetService("ReplicatedStorage").Remotes.ChangeTeam:InvokeServer(unpack(args))
+	game:GetService("ReplicatedStorage").Remotes.RespawnPlayer:FireServer()
+end)
+
+Time:NewButton("Prisoner", "Foundation Button", function()
+	local args = {[1] = "Prisoner",[2] = false}
+	game:GetService("ReplicatedStorage").Remotes.ChangeTeam:InvokeServer(unpack(args))
+	game:GetService("ReplicatedStorage").Remotes.RespawnPlayer:FireServer()
+end)
+
+local Tab = Window:NewTab("Teleporte")
+local tp1 = Tab:NewSection("Misc")
+local tp = Tab:NewSection("Teleportes")
+local tp2 = Tab:NewSection("Light") 
+
+tp1:NewButton("Escape Chaos Insurgency", "Escape Button", function()
+	local CFrameEnd = CFrame.new(344, 8, 161) -- Place your coords in here
+	local Time = 2 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	local args = {
+		[1] = workspace.Elevators.GateAToSurface1.Call
+	}
+	
+	game:GetService("ReplicatedStorage").Remotes.Interact:FireServer(unpack(args))
+
+	wait(7)
+
+	local CFrameEnd = CFrame.new(344, 8, 143) -- Place your coords in here
+	local Time = 2 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	local args = {
+		[1] = workspace.Elevators.GateAToSurface1.UseElevator
+	}
+	
+	game:GetService("ReplicatedStorage").Remotes.Interact:FireServer(unpack(args))
+	
+	wait(6)
+
+	local CFrameEnd = CFrame.new(208, 209, 1464) -- Place your coords in here
+	local Time = 2 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+
+	wait(2)
+
+	local CFrameEnd = CFrame.new(494, 209, 1462) -- Place your coords in here
+	local Time = 2 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+
+	wait(1)
+
+	local CFrameEnd = CFrame.new(491, 209, 1419) -- Place your coords in here
+	local Time = 2 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+
+tp:NewButton("Desert Tetrahedron", "Desert Tetrahedron", function()
+	local CFrameEnd = CFrame.new(316, 19, 297) -- Place your coords in here
+	local Time = 4 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(1)
+	local CFrameEnd = CFrame.new(295, 19, 350) -- Place your coords in here
+	local Time = 4 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+tp:NewButton("Red Lake, Meio Bugado", "Red Lake", function()
+    local CFrameEnd = CFrame.new(405, -170, 120) -- Place your coords in here
+	local Time = 4 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+tp:NewButton("Living Room", "Living Room", function()
+    local CFrameEnd = CFrame.new(936, -170, -333) -- Place your coords in here
+	local Time = 4 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+tp:NewButton("Tele Kill Alloy", "Telle Kill Alloy", function()
+    local CFrameEnd = CFrame.new(382, 19, -411) -- Place your coords in here
+	local Time = 4 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+tp:NewButton("Zombie Pathogen", "Zombie Pathogen", function()
+    local CFrameEnd = CFrame.new(812, 19, -178) -- Place your coords in here
+	local Time = 4 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+tp2:NewButton("Light 1", "Light 1", function()
+    local CFrameEnd = CFrame.new(502, 19, 635) -- Place your coords in here
+	local Time = 4 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+tp2:NewButton("Light 2", "Light 2", function()
+    local CFrameEnd = CFrame.new() -- Place your coords in here
+	local Time = 4 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+tp2:NewButton("Light 3", "Light 3", function()
+    local CFrameEnd = CFrame.new() -- Place your coords in here
+	local Time = 4 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+
+local Tab = Window:NewTab("Vendas")
+local v = Tab:NewSection("Local de Vendas, Andar de Baixo")
+local v2 = Tab:NewSection("Local de Vendas, Andar de Cima")
+
+v:NewButton("Venda 1, Medical Personnel", "Venda 1", function()
+    local CFrameEnd = CFrame.new(321, 19, 660) -- Place your coords in here
+	local Time = 3 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+v:NewButton("Venda 2, Scientist", "Venda 2", function()
+	local CFrameEnd = CFrame.new(776, 19, 277) -- Place your coords in here
+	local Time = 3 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(1)
+	local CFrameEnd = CFrame.new(781, 2, 268) -- Place your coords in here
+	local Time = 3 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+v:NewButton("Venda 3, Heavy Light Containment", "Venda 3", function()
+    local CFrameEnd = CFrame.new(781, 2, 268) -- Place your coords in here
+	local Time = 3 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+v2:NewButton("Venda 4, Heavy Containment Elevator", "Venda 3", function()
+    local CFrameEnd = CFrame.new(595, -169, -44) -- Place your coords in here
+	local Time = 3 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end)
+
+v2:NewButton("Venda 5, Heavy Containment ", "Venda 3", function()
+    local CFrameEnd = CFrame.new(318, -170, -359) -- Place your coords in here
+	local Time = 3 -- Time in seconds
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+	tween:Play()
+	tween.Completed:Wait()
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
 end)
