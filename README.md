@@ -20,4 +20,4 @@
 </div><br/>
 
 
-I like technology and programming knowledge, I will soon be a Front-end or Full-Stack developer.
+I like technology and programming knowledge, I will soon be a Front-end, Back-End, Full-Stack developer or Software Engineering .
